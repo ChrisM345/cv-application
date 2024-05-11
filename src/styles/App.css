@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+}
+
+.form-fields {
+  border: solid green;
+  flex: 1;
+}
+
+.cv-application {
+  border: solid red;
+  flex: 1;
+}
