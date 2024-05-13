@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Application from "./application";
 
 function Applicant({ data }) {
   const [firstName, setFirstName] = useState("");
@@ -8,6 +7,7 @@ function Applicant({ data }) {
   const [email, setEmail] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [summary, setSummary] = useState("");
+  const [showSubmit, setShowSubmit] = useState(true);
 
   function handleFirstNameChange(e) {
     setFirstName(e.target.value);
@@ -42,19 +42,33 @@ function Applicant({ data }) {
       summary: summary,
     });
 
-    console.log("test");
+    setShowSubmit(!showSubmit);
   }
 
-  return (
-    <form onSubmit={(e) => e.preventDefault()}>
-      <input placeholder="First Name" value={firstName} onChange={handleFirstNameChange} />
-      <input placeholder="Last Name" value={lastName} onChange={handleLastNameChange} />
-      <input placeholder="Phone Number" value={phoneNumber} onChange={handlePhoneNameChange} />
-      <input placeholder="Email" value={email} onChange={handleEmailChange} />
-      <input placeholder="Linkedin Profile" value={linkedin} onChange={handleLinkedinChange} />
-      <input placeholder="Summary" value={summary} onChange={handleSummaryChange} />
-      <button onClick={handleSendData}>Submit</button>
-    </form>
+  function handleSetSubmit() {
+    setShowSubmit(!showSubmit);
+  }
+
+  return showSubmit ? (
+    <>
+      <h2>Basic Info Form</h2>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <input placeholder="First Name" value={firstName} onChange={handleFirstNameChange} />
+        <input placeholder="Last Name" value={lastName} onChange={handleLastNameChange} />
+        <input placeholder="Phone Number" value={phoneNumber} onChange={handlePhoneNameChange} />
+        <input placeholder="Email" value={email} onChange={handleEmailChange} />
+        <input placeholder="Linkedin Profile" value={linkedin} onChange={handleLinkedinChange} />
+        <input placeholder="Summary" value={summary} onChange={handleSummaryChange} />
+        <button onClick={handleSendData}>Submit</button>
+      </form>
+    </>
+  ) : (
+    <>
+      <h2>Basic Info Form</h2>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <button onClick={handleSetSubmit}>Edit</button>
+      </form>
+    </>
   );
 }
 
