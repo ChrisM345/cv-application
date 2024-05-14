@@ -42,7 +42,7 @@ function EducationForm({ data }) {
       degree: degree,
       gpa: gpa,
     });
-    setShowSubmit(!showSubmit);
+    handleSetSubmit();
   }
 
   function handleSetSubmit() {

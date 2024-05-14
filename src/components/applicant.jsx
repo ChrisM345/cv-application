@@ -42,7 +42,7 @@ function Applicant({ data }) {
       summary: summary,
     });
 
-    setShowSubmit(!showSubmit);
+    handleSetSubmit();
   }
 
   function handleSetSubmit() {
