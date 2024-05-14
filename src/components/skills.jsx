@@ -47,7 +47,18 @@ function SkillForm({ data }) {
       {skills}
       <form onSubmit={(e) => e.preventDefault()}>
         {skills.map((skill, index) => {
-          return <input placeholder="Skill" value={skill} onChange={(e) => handleSkillsChange(e, index)} />;
+          return (
+            <>
+              <input key={index} placeholder="Skill" value={skill} onChange={(e) => handleSkillsChange(e, index)} />
+              <button
+                onClick={() => {
+                  setSkills(skills.slice(0, index).concat(skills.slice(index + 1)));
+                }}
+              >
+                Delete
+              </button>
+            </>
+          );
         })}
         <input id="newSkill" placeholder="Skill" onChange={handleNewSkillChange} />
         <button onClick={handleAddSkill}>Add Skill</button>
