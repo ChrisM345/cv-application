@@ -2,6 +2,8 @@ import Applicant from "./components/applicant";
 import Application from "./components/application";
 import { Education, Skills, Experience } from "./components/application";
 import EducationForm from "./components/education";
+import SkillForm from "./components/skills";
+import ExperienceForm from "./components/experience";
 import { useState } from "react";
 import "./styles/App.css";
 
@@ -24,7 +26,7 @@ function App() {
   });
 
   const [skillsData, setSkillsData] = useState({
-    skills: ["test1", "test2", "test3"],
+    skills: [],
   });
 
   const [experienceData, setExperienceData] = useState({
@@ -42,6 +44,8 @@ function App() {
         <h1>CV Application</h1>
         <Applicant data={setApplicantData} />
         <EducationForm data={setEducationData} />
+        <SkillForm data={setSkillsData} />
+        <ExperienceForm data={setExperienceData} />
       </div>
       <div className="cv-application">
         <Application data={applicantData} />
