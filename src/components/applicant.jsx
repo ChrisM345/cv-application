@@ -33,18 +33,22 @@ function Applicant({ data }) {
     setSummary(e.target.value);
   }
 
+  // Commit changes and update CV Application
   function handleSendData() {
-    data({
-      name: `${firstName} ${lastName}`,
-      phoneNumber: phoneNumber,
-      email: email,
-      linkedin: linkedin,
-      summary: summary,
-    });
+    if (firstName && lastName && phoneNumber && email && linkedin && summary) {
+      data({
+        name: `${firstName} ${lastName}`,
+        phoneNumber: phoneNumber,
+        email: email,
+        linkedin: linkedin,
+        summary: summary,
+      });
 
-    handleSetSubmit();
+      handleSetSubmit();
+    }
   }
 
+  // Switches between Submit and Edit button
   function handleSetSubmit() {
     setShowSubmit(!showSubmit);
   }
@@ -56,17 +60,23 @@ function Applicant({ data }) {
         <input placeholder="First Name" value={firstName} onChange={handleFirstNameChange} />
         <input placeholder="Last Name" value={lastName} onChange={handleLastNameChange} />
         <input placeholder="Phone Number" value={phoneNumber} onChange={handlePhoneNameChange} />
-        <input placeholder="Email" value={email} onChange={handleEmailChange} />
+        <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
         <input placeholder="Linkedin Profile" value={linkedin} onChange={handleLinkedinChange} />
         <input placeholder="Summary" value={summary} onChange={handleSummaryChange} />
-        <button onClick={handleSendData}>Submit</button>
+        <div>
+          <p>
+            Submit Basic Info Form: <button onClick={handleSendData}>Submit</button>
+          </p>
+        </div>
       </form>
     </>
   ) : (
     <>
       <h2>Basic Info Form</h2>
       <form onSubmit={(e) => e.preventDefault()}>
-        <button onClick={handleSetSubmit}>Edit</button>
+        <p>
+          Edit Basic Info Form: <button onClick={handleSetSubmit}>Edit</button>
+        </p>
       </form>
     </>
   );
