@@ -1,0 +1,13 @@
+input {
+  max-width: 25vh;
+  width: 80%;
+}
+
+.responsibilities {
+  padding-left: 100px;
+}
+
+.responsibilities input {
+  max-width: 75vh;
+  width: 80%;
+}

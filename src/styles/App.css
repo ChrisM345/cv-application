@@ -3,11 +3,39 @@
 }
 
 .form-fields {
-  border: solid green;
+  /* border: solid green; */
   flex: 1;
 }
 
 .cv-application {
-  border: solid red;
+  border: solid black;
   flex: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.basic-info {
+  /* background-color: red; */
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.basic-info h2,
+.h3-cv-application,
+.h4-cv-application {
+  margin: 0;
+}
+
+.education-info,
+.skills-info,
+.experience-info {
+  padding-top: 10px;
+}
+
+.ul-li-jobs {
+  padding-left: 0;
+  margin: 0;
+  list-style-position: inside;
 }
