@@ -33,18 +33,22 @@ function EducationForm({ data }) {
     setGPA(e.target.value);
   }
 
+  // Commit changes and update CV Application
   function handleSendData() {
-    data({
-      school: schoolName,
-      city: schoolCity,
-      state: schoolState,
-      graduation: graduationDate,
-      degree: degree,
-      gpa: gpa,
-    });
-    handleSetSubmit();
+    if (schoolName && schoolCity && schoolState && graduationDate && degree && gpa) {
+      data({
+        school: schoolName,
+        city: schoolCity,
+        state: schoolState,
+        graduation: graduationDate,
+        degree: degree,
+        gpa: gpa,
+      });
+      handleSetSubmit();
+    }
   }
 
+  // Switches between Submit and Edit button
   function handleSetSubmit() {
     setShowSubmit(!showSubmit);
   }
@@ -59,14 +63,20 @@ function EducationForm({ data }) {
         <input placeholder="Graduation Date" value={graduationDate} onChange={handleGraduationDateChange} />
         <input placeholder="Degree" value={degree} onChange={handleDegreeChange} />
         <input placeholder="GPA" value={gpa} onChange={handleGPAChange} />
-        <button onClick={handleSendData}>Submit</button>
+        <div>
+          <p>
+            Submit Education Form: <button onClick={handleSendData}>Submit</button>
+          </p>
+        </div>
       </form>
     </>
   ) : (
     <>
       <h2>Education Form</h2>
       <form onSubmit={(e) => e.preventDefault()}>
-        <button onClick={handleSetSubmit}>Edit</button>
+        <p>
+          Edit Education Form: <button onClick={handleSetSubmit}>Edit</button>
+        </p>
       </form>
     </>
   );
