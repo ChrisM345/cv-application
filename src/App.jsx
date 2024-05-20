@@ -26,22 +26,23 @@ function App() {
   });
 
   const [skillsData, setSkillsData] = useState({
-    skills: [],
+    skills: ["skill1"],
   });
 
   const [experienceData, setExperienceData] = useState({
-    jobTitle: ["jobtitle1", "jobtitle2"],
-    companyName: ["company1", "company2"],
-    jobResponsibilities: [
-      ["Managed a team", "Trained others"],
-      ["Worked", "Led a team"],
-    ],
+    jobTitle: ["jobtitle1"],
+    companyName: ["company1"],
+    companyLocation: ["location1"],
+    jobStartDate: ["jobStartDate"],
+    jobEndDate: ["jobEndDate"],
+    jobResponsibilities: [["responsibility1", "responsibility2"]],
   });
 
   return (
     <div className="container">
       <div className="form-fields">
         <h1>CV Application</h1>
+        <p>All fields are required. Submit will not work unless they are filled out</p>
         <Applicant data={setApplicantData} />
         <EducationForm data={setEducationData} />
         <SkillForm data={setSkillsData} />
